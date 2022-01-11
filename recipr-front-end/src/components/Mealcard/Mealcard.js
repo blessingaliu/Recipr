@@ -13,4 +13,4 @@ function MealCard({ strMeal, strMealThumb }) {
     );
 }
 
-export default Mealcard
+export default MealCard

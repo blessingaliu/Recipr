@@ -1,7 +1,7 @@
 import ShowNav from "./components/Navbar/navbar";
 import "./App.css";
 import ShowSearchbar from "./components/searchbar/searchbar";
-// import Homepage from "./pages/Home/index";
+import Homepage from "./pages/Home/index";
 
 function App() {
 
@@ -9,6 +9,7 @@ function App() {
         <div className = "App" >
             <ShowNav />
             <ShowSearchbar />
+            <Homepage />
         </div>
     );
 }
