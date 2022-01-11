@@ -1,0 +1,16 @@
+.searchbar_container {
+  background-image: url('https://www.simplyrecipes.com/thmb/_8_9T04N6RKzFHkbdSoYyQkGF3g=/2000x1335/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__12__Meals-for-a-Houseful-LEAD-1-2e00f629b1d84816b2ef802454f5c911.jpg');
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.searchbar
+{
+  /*border: 5px solid #66666666;*/
+  width: 50%;
+}
