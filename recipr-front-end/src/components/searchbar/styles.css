@@ -1,5 +1,5 @@
 .searchbar_container {
-  background-image: url('https://www.simplyrecipes.com/thmb/_8_9T04N6RKzFHkbdSoYyQkGF3g=/2000x1335/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__12__Meals-for-a-Houseful-LEAD-1-2e00f629b1d84816b2ef802454f5c911.jpg');
+  background-image: url('https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fwww.wbcsd.org%2Fvar%2Fsite%2Fstorage%2Fimages%2Fmedia%2Fimages%2Ffresh_pa%2F80809-2-eng-GB%2FFRESH_PA_i1140.jpg');
   height: 400px;
   display: flex;
   justify-content: center;
@@ -12,5 +12,7 @@
 .searchbar
 {
   /*border: 5px solid #66666666;*/
+  height: 38px;
   width: 50%;
+  box-shadow: 0px 0px 20px 10px#333333bb;
 }

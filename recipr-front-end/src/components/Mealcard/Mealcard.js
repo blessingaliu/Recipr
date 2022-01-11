@@ -1,14 +1,15 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import "./styles.css"
 
 function MealCard({ strMeal, strMealThumb }) {
     return (
-        <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={strMealThumb} />
-        <Card.Body>
-            <Card.Title>{strMeal}Card Title</Card.Title>
-            <Button variant="primary">See more</Button>
-        </Card.Body>
+        <Card className="mealCard" style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={strMealThumb} />
+            <Card.Body>
+                <Card.Title>{strMeal}</Card.Title>
+                <Button variant="success">See recipe</Button>
+            </Card.Body>
         </Card>
     );
 }
