@@ -1,6 +1,7 @@
 import { render, screen, cleanup} from '@testing-library/react';
 import ShowSearchbar from '../searchbar/searchbar';
 
+
 import MealContainer from './MealContainer'
 
 afterEach(() => {
