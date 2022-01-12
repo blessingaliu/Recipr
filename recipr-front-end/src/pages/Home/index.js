@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react";
 import axios from "axios";
-import MealContainer from "../../components/Mealcontainer/MealContainer";
+import MealContainer from "../../components/MealContainer/MealContainer";
 import ShowSearchbar from "../../components/searchbar/searchbar";
 import { MyContext } from "../../context";
 

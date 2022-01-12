@@ -9,8 +9,8 @@ function MealModal({ strMeal, strInstructions }) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
+      <Button variant="success" onClick={handleShow}>
+        Show Recipe
       </Button>
 
       <Modal show={show} onHide={handleClose}>
