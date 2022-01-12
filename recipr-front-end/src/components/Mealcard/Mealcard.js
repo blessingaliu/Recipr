@@ -4,7 +4,7 @@ import "./styles.css"
 
 function MealCard({ strMeal, strMealThumb }) {
     return (
-        <Card className="mealCard" style={{ width: '18rem' }}>
+        <Card className="mealCard" data-testid='card' style={{ width: '18rem' }}>
             <Card.Img variant="top" src={strMealThumb} />
             <Card.Body>
                 <Card.Title>{strMeal}</Card.Title>
