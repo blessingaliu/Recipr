@@ -2,14 +2,17 @@ import ShowNav from "./components/Navbar/navbar";
 import "./App.css";
 import ShowSearchbar from "./components/searchbar/searchbar";
 import Homepage from "./pages/Home/index";
+import AppContext from "./context";
 
 function App() {
   return (
-    <div className="App">
-      <ShowNav />
-      <ShowSearchbar />
-      <Homepage />
-    </div>
+    <AppContext>
+      <div className="App">
+        <ShowNav />
+        <ShowSearchbar />
+        <Homepage />
+      </div>
+    </AppContext>
   );
 }
 

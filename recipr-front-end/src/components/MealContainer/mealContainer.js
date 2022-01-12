@@ -4,10 +4,12 @@ import "./styles.css"
 
 function MealContainer({meals}) {
     return (
-        <div className="MealContainer">
-            {meals.map((meal) => (<MealCard {...meal}/>))}
+        <div className='meals-container'>
+            {meals.map((meal) => (
+                <MealCard key={meal.idMeal} {...meal} />
+            ))}
         </div>
-    )
+    );
 }
 
 export default MealContainer

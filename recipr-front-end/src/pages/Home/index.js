@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import axios from "axios";
-import MealContainer from "../../components/Mealcontainer/mealContainer";
+import MealContainer from "../../components/MealContainer/MealContainer";
 import ShowSearchbar from "../../components/searchbar/searchbar";
+import { MyContext } from "../../context";
 
 function Homepage() {
-  const [meals, setMeals] = useState([]);
+  const {meals, setMeals} = useContext(MyContext);
   useEffect(() => {
     axios
       .get("https://www.themealdb.com/api/json/v1/1/search.php?f=a")
