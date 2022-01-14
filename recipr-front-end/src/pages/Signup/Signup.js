@@ -4,22 +4,38 @@ import "./styles.css";
 import axios from "axios";
 
 function Signup() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   function handleSignup(e) {
     e.preventDefault();
-    if (!email || !password) {
+    if (!email || !password || !name) {
       return alert("Please fill out the fields");
     }
     axios
-      .post("http://localhost:5001/users", { email, password })
+      .post("http://localhost:5001/users", { name, email, password })
       .then(({ data }) => console.log(data))
       .catch((err) => console.log(err));
   }
 
   return (
     <div className="signup">
-      <Form onSubmit={handleSignup}>
+
+  <Form onSubmit={handleSignup}>
+        <Form.Group className="mb-3" controlId="formBasicName">
+          <Form.Label>Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter name"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            required
+          />
+          <Form.Text className="text-muted">
+            Your name.
+          </Form.Text>
+        </Form.Group>
+      
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
