@@ -6,11 +6,15 @@ import ShowNav from "./components/Navbar/navbar";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import Error from "./pages/Error/Error";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import axios from "./Axios";
 
 function App() {
-  const { user } = useContext(MyContext);
+  const { user, setUser } = useContext(MyContext);
+  useEffect(() => {
+    axios.post("/auto-login").then(({ data }) => setUser(data));
+  }, []);
   return (
     <Router>
       <ShowNav />
@@ -20,15 +24,15 @@ function App() {
           <Homepage />
         </Route>
         {!user && (
-            <Route exact path="/login">
-              <Login />
-            </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
         )}
         {!user && (
-            <Route exact path="/signup">
-              <Signup />
-            </Route>
-         )}
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
+        )}
         <Route>
           <Error />
         </Route>

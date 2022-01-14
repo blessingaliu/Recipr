@@ -1,29 +1,28 @@
 import React, { useContext, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import "./styles.css";
-import axios from "axios";
+import axios from "../../Axios";
 import { MyContext } from "../../context";
 
 function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {setUser} = useContext(MyContext)
+  const { setUser } = useContext(MyContext);
   function handleSignup(e) {
     e.preventDefault();
     if (!email || !password || !name) {
       return alert("Please fill out the fields");
     }
     axios
-      .post("http://localhost:5001/users", { name, email, password })
+      .post("/users", { name, email, password })
       .then(({ data }) => setUser(data))
       .catch((err) => console.log(err));
   }
 
   return (
     <div className="signup">
-
-  <Form onSubmit={handleSignup}>
+      <Form onSubmit={handleSignup}>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Name</Form.Label>
           <Form.Control
@@ -33,11 +32,9 @@ function Signup() {
             value={name}
             required
           />
-          <Form.Text className="text-muted">
-            Your name.
-          </Form.Text>
+          <Form.Text className="text-muted">Your name.</Form.Text>
         </Form.Group>
-      
+
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control

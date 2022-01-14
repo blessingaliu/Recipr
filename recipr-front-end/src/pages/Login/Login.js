@@ -1,21 +1,21 @@
 import React, { useContext, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { MyContext } from "../../context";
-import axios from "axios";
+import axios from "../../Axios";
 import "./styles.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {setUser} = useContext(MyContext);
-  
+  const { setUser } = useContext(MyContext);
+
   function handleLogin(e) {
     e.preventDefault();
     if (!email || !password) {
       return alert("Please fill out the fields");
     }
     axios
-      .post("http://localhost:5001/login", { email, password })
+      .post("/login", { email, password })
       .then(({ data }) => setUser(data))
       .catch((err) => console.log(err));
   }
