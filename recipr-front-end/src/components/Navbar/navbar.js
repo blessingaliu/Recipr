@@ -1,18 +1,30 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Navbar, Container, Nav} from "react-bootstrap";
+import { LinkContainer } from 'react-router-bootstrap'
+import { MyContext } from "../../context";
 
 function ShowNav() {
+  const { user } = useContext(MyContext);
   return (
+    
         <Navbar bg="light" expand="lg">
           <Container>
-            <Navbar.Brand href="#home">Recipr</Navbar.Brand>
+            <LinkContainer to="/">
+            <Navbar.Brand >Recipr</Navbar.Brand>
+            </LinkContainer>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
+            <Nav.Link href="/">Home</Nav.Link>
+              {!user && (
               <Nav className="me-auto">
-                <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="login">Login</Nav.Link>
-                <Nav.Link href="signup">Signup</Nav.Link>
+                <LinkContainer to="/login"> 
+                <Nav.Link >Login</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/signup">
+                <Nav.Link>Signup</Nav.Link>
+                </LinkContainer>
               </Nav>
+              )}
             </Navbar.Collapse>
           </Container>
         </Navbar>
