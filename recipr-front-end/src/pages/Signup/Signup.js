@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import "./styles.css";
 import axios from "axios";
+import { MyContext } from "../../context";
 
 function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {setUser} = useContext(MyContext)
   function handleSignup(e) {
     e.preventDefault();
     if (!email || !password || !name) {
@@ -14,7 +16,7 @@ function Signup() {
     }
     axios
       .post("http://localhost:5001/users", { name, email, password })
-      .then(({ data }) => console.log(data))
+      .then(({ data }) => setUser(data))
       .catch((err) => console.log(err));
   }
 
