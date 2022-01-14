@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const userSchema = new mongoose.Schema({
 	name: {
 		type: String,
-		required: true,
+		required: false,
 	},
 	email: {
 		type: String,
@@ -26,6 +26,19 @@ userSchema.pre("save", async function (next) {
 	}
 	next();
 });
+
+userSchema.statics.findByCredentials = async function (email, password) {
+	const user = await User.findOne({email});
+	if (!user) {
+		throw new Error("Invalid credentials!");
+	}
+	const passwordMatch = await bcrypt.compareSync(password, user.password);
+	if (!passwordMatch) {
+		throw new Error("Invalid credentials!");
+	}
+	return user;
+	//console.log(user);
+}
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
