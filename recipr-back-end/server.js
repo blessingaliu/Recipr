@@ -4,9 +4,9 @@ const app = express();
 // app.use(express.json());
 
 require("./db");
-app.use(userRoutes);
 app.use(express.urlencoded({ extended: true }));
+app.use(userRoutes);
 
-app.listen(5000, () => {
-	console.log("Server running at 5000");
+app.listen(5001, () => {
+	console.log("Server running at 5001");
 });
