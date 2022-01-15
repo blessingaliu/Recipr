@@ -8,10 +8,13 @@ function ShowSearchbar() {
   const [searchInput, setSearchInput] = useState("")
   const {setMeals} = useContext(MyContext)
   function handleSearch() {
-    axios
-    .get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`)
-    .then(({data}) => setMeals(data.meals));
-  }
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`)
+    .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+
+        setMeals(data.meals);
+  })}
   return (
     <div className="searchbar_container">
       <div className="searchbar">
