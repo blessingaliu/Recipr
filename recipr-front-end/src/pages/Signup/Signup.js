@@ -3,8 +3,10 @@ import { Form, Button } from "react-bootstrap";
 import "./styles.css";
 import axios from "../../Axios";
 import { MyContext } from "../../context";
+import { useHistory } from "react-router-dom";
 
 function Signup() {
+  const history = useHistory();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,6 +21,7 @@ function Signup() {
       .then(({ data }) => { 
         setUser(data);
         localStorage.setItem("token", data.token);
+        history.replace('/');
       })
       .catch((err) => console.log(err));
   }
