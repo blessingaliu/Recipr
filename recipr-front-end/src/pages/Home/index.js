@@ -1,15 +1,18 @@
 import { useEffect, useContext } from "react";
 import axios from "axios";
 import MealContainer from "../../components/MealContainer/MealContainer";
-import ShowSearchbar from "../../components/searchbar/searchbar";
 import { MyContext } from "../../context";
 
 function Homepage() {
   const { meals, setMeals } = useContext(MyContext);
   useEffect(() => {
-    axios
-      .get("https://www.themealdb.com/api/json/v1/1/search.php?f=a")
-      .then(({ data }) => setMeals(data.meals))
+    fetch("https://www.themealdb.com/api/json/v1/1/search.php?f=a")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+
+        setMeals(data.meals);
+      })
       .catch((error) => console.log(error));
   }, []);
 

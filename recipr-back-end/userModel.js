@@ -56,5 +56,6 @@ userSchema.methods.toJSON = function(){
   delete userObject._id;
   return userObject;
 }
+
 const User = mongoose.model("User", userSchema);
 module.exports = User;

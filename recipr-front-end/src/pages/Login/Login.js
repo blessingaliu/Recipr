@@ -4,19 +4,24 @@ import { MyContext } from "../../context";
 import axios from "../../Axios";
 import "./styles.css";
 
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setUser } = useContext(MyContext);
 
   function handleLogin(e) {
+   
     e.preventDefault();
     if (!email || !password) {
       return alert("Please fill out the fields");
     }
     axios
       .post("/login", { email, password })
-      .then(({ data }) => setUser(data))
+      .then(({ data }) => {
+       localStorage.setItem("token", data.token);
+       setUser(data)
+      })
       .catch((err) => console.log(err));
   }
 
