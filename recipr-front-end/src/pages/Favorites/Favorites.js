@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { MyContext } from "../../context";
+import { Button } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 function Favorites() {
   const { user } = useContext(MyContext);
@@ -10,7 +12,9 @@ function Favorites() {
     return (
       <div>
         <h2>You don't have any favorites yet</h2>
-        <p>Please add a new one</p>
+        <LinkContainer to="/">
+          <Button>Please add a new one</Button>
+        </LinkContainer>
       </div>
     );
   }
