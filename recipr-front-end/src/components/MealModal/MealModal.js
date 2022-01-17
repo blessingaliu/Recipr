@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { MyContext } from "../../context";
 
 function MealModal({ strMeal, strInstructions, strIngredient1 }) {
   const [show, setShow] = useState(false);
+  const { user } = useContext(MyContext);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -25,9 +27,11 @@ function MealModal({ strMeal, strInstructions, strIngredient1 }) {
           <Button variant="success" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save to favourites
-          </Button>
+          {user && (
+            <Button variant="primary" onClick={handleClose}>
+              Save to favourites
+            </Button>
+          )}
         </Modal.Footer>
       </Modal>
     </>
