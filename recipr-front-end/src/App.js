@@ -13,8 +13,7 @@ import axios from "./Axios";
 function App() {
   const { user, setUser } = useContext(MyContext);
   useEffect(() => {
-    axios.post("/auto-login")
-    .then(({ data }) => setUser(data));
+    axios.post("/auto-login").then(({ data }) => setUser(data));
   }, []);
   return (
     <Router>
@@ -32,6 +31,11 @@ function App() {
         {!user && (
           <Route exact path="/signup">
             <Signup />
+          </Route>
+        )}
+        {user && (
+          <Route>
+            <Favorites />
           </Route>
         )}
         <Route>
