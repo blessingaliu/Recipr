@@ -1,5 +1,5 @@
 .searchbar_container {
-  background-image: url('https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fwww.wbcsd.org%2Fvar%2Fsite%2Fstorage%2Fimages%2Fmedia%2Fimages%2Ffresh_pa%2F80809-2-eng-GB%2FFRESH_PA_i1140.jpg');
+  background-image: url("https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fwww.wbcsd.org%2Fvar%2Fsite%2Fstorage%2Fimages%2Fmedia%2Fimages%2Ffresh_pa%2F80809-2-eng-GB%2FFRESH_PA_i1140.jpg");
   height: 400px;
   display: flex;
   justify-content: center;
@@ -9,10 +9,20 @@
   background-size: cover;
 }
 
-.searchbar
-{
+.searchbar {
   /*border: 5px solid #66666666;*/
   height: 38px;
   width: 50%;
-  box-shadow: 0px 0px 20px 10px#333333bb;
+  /* box-shadow: 0px 0px 20px 10px#333333bb; */
+}
+
+.username {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
 }
