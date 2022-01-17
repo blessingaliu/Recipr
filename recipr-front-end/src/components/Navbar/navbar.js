@@ -38,7 +38,7 @@ function ShowNav() {
             <>
               <LinkContainer to="/my-favorites">
                 <Nav.Link>Favorites</Nav.Link>
-              </LinkContainer>
+              </LinkContainer>{" "}
               <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
             </>
           )}

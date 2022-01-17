@@ -25,14 +25,14 @@ function App() {
           <Homepage />
         </Route>
         {!user && (
-          <Route exact path="/login">
-            <Login />
-          </Route>
-        )}
-        {!user && (
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
+          <>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
+            </Route>
+          </>
         )}
         {user && (
           <Route exact path="/my-favorites">
