@@ -12,39 +12,39 @@ import axios from "./Axios";
 import Favorites from "./pages/Favorites/Favorites";
 
 function App() {
-	const { user, setUser } = useContext(MyContext);
-	useEffect(() => {
-		axios.post("/auto-login").then(({ data }) => setUser(data));
-	}, []);
-	return (
-		<Router>
-			<ShowNav />
-			<Switch>
-				<Route exact path="/">
-					<ShowSearchbar />
-					<Homepage />
-				</Route>
-				{!user && (
-					<Route exact path="/login">
-						<Login />
-					</Route>
-				)}
-				{!user && (
-					<Route exact path="/signup">
-						<Signup />
-					</Route>
-				)}
-				{user && (
-					<Route>
-						<Favorites />
-					</Route>
-				)}
-				<Route>
-					<Error />
-				</Route>
-			</Switch>
-		</Router>
-	);
+  const { user, setUser } = useContext(MyContext);
+  useEffect(() => {
+    axios.post("/auto-login").then(({ data }) => setUser(data));
+  }, []);
+  return (
+    <Router>
+      <ShowNav />
+      <Switch>
+        <Route exact path="/">
+          <ShowSearchbar />
+          <Homepage />
+        </Route>
+        {!user && (
+          <Route exact path="/login">
+            <Login />
+          </Route>
+        )}
+        {!user && (
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
+        )}
+        {user && (
+          <Route exact path="/my-favorites">
+            <Favorites />
+          </Route>
+        )}
+        <Route>
+          <Error />
+        </Route>
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;
