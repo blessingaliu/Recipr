@@ -52,4 +52,13 @@ router.post("/remove-favorites", authUser, async (req, res) => {
   res.status(200).send(user);
 });
 
+router.post('/add_recipe', authUser, async (req, res)=>{
+  const { recipeName, recipeIngredients, recipeInstructions } = req.body
+  const user = req.user;
+  user.userrecipe.push(req.body );
+  await user.save();
+  res.status(200).send()
+
+})
+
 module.exports = router;

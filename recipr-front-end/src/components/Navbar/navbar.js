@@ -20,11 +20,11 @@ function ShowNav() {
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>Recipr</Navbar.Brand>
-        </LinkContainer>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav.Link href="/">Home</Nav.Link>
-          {!user && (
+          </LinkContainer>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav.Link href="/">Home</Nav.Link>
+            {!user && (
             <Nav className="me-auto">
               <LinkContainer to="/login">
                 <Nav.Link>Login</Nav.Link>
@@ -32,20 +32,26 @@ function ShowNav() {
               <LinkContainer to="/signup">
                 <Nav.Link>Signup</Nav.Link>
               </LinkContainer>
-            </Nav>
-          )}
-          {user && (
-            <>
-              <LinkContainer to="/my-favorites">
-                <Nav.Link>Favorites</Nav.Link>
-              </LinkContainer>{" "}
-              <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
-            </>
-          )}
-        </Navbar.Collapse>
+              </Nav>
+              )}
+              {user && (
+                <>
+                <LinkContainer to="/my-favorites">
+                  <Nav.Link>Favorites</Nav.Link>
+                </LinkContainer>{" "}
+                <LinkContainer to="/add_recipe">
+                  <Nav.Link>Add Recipe</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/my_recipes">
+                  <Nav.Link>My Recipes</Nav.Link>
+                </LinkContainer>
+                  <Nav.Link onClick ={handleLogout}>Logout</Nav.Link>
+                </>
+              )}
+          </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
-}
+  )};
+
 
 export default ShowNav;

@@ -9,8 +9,6 @@ function Homepage() {
     fetch("https://www.themealdb.com/api/json/v1/1/search.php?f=a")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-
         setMeals(data.meals);
       })
       .catch((error) => console.log(error));
