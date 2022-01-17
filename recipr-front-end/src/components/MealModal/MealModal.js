@@ -18,17 +18,15 @@ function MealModal({ strMeal, strInstructions, strIngredient1 }) {
           <Modal.Title>{strMeal}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div>
-            
-          {strInstructions}
-          </div>
-           {strIngredient1} 
-
-        
+          <div>{strInstructions}</div>
+          {strIngredient1}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="success" onClick={handleClose}>
             Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save to favourites
           </Button>
         </Modal.Footer>
       </Modal>
