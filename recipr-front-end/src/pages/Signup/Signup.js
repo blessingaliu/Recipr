@@ -18,10 +18,10 @@ function Signup() {
     }
     axios
       .post("/users", { name, email, password })
-      .then(({ data }) => { 
+      .then(({ data }) => {
         setUser(data);
         localStorage.setItem("token", data.token);
-        history.replace('/');
+        history.replace("/");
       })
       .catch((err) => console.log(err));
   }
