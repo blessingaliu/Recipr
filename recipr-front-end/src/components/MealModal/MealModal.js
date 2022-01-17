@@ -6,27 +6,43 @@ import axios from "axios";
 function MealModal({ strMeal, strInstructions, strIngredient1, idMeal }) {
   const [show, setShow] = useState(false);
   const { user, setUser } = useContext(MyContext);
+  const [loading, setLoading] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleAddToFavorites = () => {
+    console.log("mealId", idMeal);
+    setLoading(true);
     axios
       .post("/add-favorites", { mealId: idMeal })
       .then(({ data }) => {
+        setLoading(false);
+
         setUser(data);
         alert("Meal added to favourites");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setLoading(false);
+
+        console.log(err);
+      });
   };
 
   const handleRemoveFromFavorites = () => {
+    setLoading(true);
     axios
       .post("/remove-favorites", { mealId: idMeal })
       .then(({ data }) => {
+        setLoading(false);
+
         setUser(data);
         alert("Meal removed from favourites");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setLoading(false);
+
+        console.log(err);
+      });
   };
 
   return (
@@ -50,11 +66,19 @@ function MealModal({ strMeal, strInstructions, strIngredient1, idMeal }) {
           {user && (
             <>
               {user.favorites.includes(idMeal) ? (
-                <Button variant="danger" onClick={handleRemoveFromFavorites}>
+                <Button
+                  variant="danger"
+                  onClick={handleRemoveFromFavorites}
+                  disabled={loading}
+                >
                   Remove from Favorites
                 </Button>
               ) : (
-                <Button variant="primary" onClick={handleAddToFavorites}>
+                <Button
+                  variant="primary"
+                  onClick={handleAddToFavorites}
+                  disabled={loading}
+                >
                   Save to favourites
                 </Button>
               )}
