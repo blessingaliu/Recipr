@@ -9,7 +9,8 @@ import Error from "./pages/Error/Error";
 import React, { useContext, useEffect } from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import axios from "./Axios";
-import Myrecipes from "./pages/Myrecipes/myrecipes";
+import MyRecipes from "./pages/MyRecipes/myrecipes";
+import AddRecipes from "./pages/AddRecipes/addrecipes";
 
 function App() {
   const { user, setUser } = useContext(MyContext);
@@ -36,8 +37,12 @@ function App() {
           </Route>
         )}
         {user && (
-        <Route exact path="/myrecipes">
-          <Myrecipes />
+        <Route exact path="/add_recipe">
+          <AddRecipes />
+        </Route>)}
+        {user && (
+        <Route exact path="/my_recipes">
+          <MyRecipes />
         </Route>)}
       </Switch>
     </Router>

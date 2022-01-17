@@ -37,19 +37,13 @@ router.post('/logout', authUser, async (req, res)=>{
 
 })
 
-router.post('/myrecipes', authUser, async (req, res)=>{
-
-  
+router.post('/add_recipe', authUser, async (req, res)=>{
   const { recipeName, recipeIngredients, recipeInstructions } = req.body
-  console.log(recipeName, recipeIngredients, recipeInstructions)
   const user = req.user;
-  // console.log(recipeName)
-  console.log(req.body)
   user.userrecipe.push(req.body );
   await user.save();
   res.status(200).send()
 
 })
-
 
 module.exports = router;

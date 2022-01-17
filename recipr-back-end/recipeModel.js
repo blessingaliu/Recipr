@@ -42,6 +42,7 @@ userSchema.statics.findByCredentials = async function (email, password) {
 		throw new Error("Invalid credentials!");
 	}
 	return user;
+	//console.log(user);
 }
 
 userSchema.methods.generateToken = async function (){

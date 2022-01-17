@@ -37,7 +37,10 @@ function ShowNav() {
               )}
               {user && (
                 <>
-                 <LinkContainer to="/myrecipes">
+                <LinkContainer to="/add_recipe">
+                <Nav.Link>Add Recipe</Nav.Link>
+                 </LinkContainer>
+                 <LinkContainer to="/my_recipes">
                 <Nav.Link>My Recipes</Nav.Link>
                  </LinkContainer>
                  <Nav.Link onClick ={handleLogout}>Logout</Nav.Link>
