@@ -1,0 +1,12 @@
+.signup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+  }
+  
+label {
+    display: flex; 
+    
+
+}

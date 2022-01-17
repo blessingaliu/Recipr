@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
 	token: {
 		type: String,
 	},
+
+	userrecipe: {
+		type: [Object],
+	}
 });
 
 userSchema.pre("save", async function (next) {
