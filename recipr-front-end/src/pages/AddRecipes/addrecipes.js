@@ -27,7 +27,7 @@ function AddRecipes() {
       //history.replace('/my_recipes');
       history.push('/');
       history.replace('/my_recipes');
-      //window.location.reload(false);
+      window.location.reload(false);
   }
     return (
         <div className="signup">

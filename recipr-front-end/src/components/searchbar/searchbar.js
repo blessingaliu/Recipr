@@ -8,7 +8,7 @@ function ShowSearchbar() {
   const [searchInput, setSearchInput] = useState("");
   const { setMeals } = useContext(MyContext);
   const { user } = useContext(MyContext);
-
+  
   function handleSearch() {
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`)
       .then((res) => res.json())
@@ -21,7 +21,10 @@ function ShowSearchbar() {
   return (
     <div className="searchbar_container">
       <div className="searchbar">
-        <h1 className="username">Welcome username</h1>
+        {user && 
+        (
+        <h1 className="username">Welcome {user.name}</h1>
+  )}
         <p className="subtitle">
           You can search for your favorite recipes here
         </p>
