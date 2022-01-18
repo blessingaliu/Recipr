@@ -10,7 +10,7 @@ import React, { useContext, useEffect } from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import axios from "./Axios";
 import Favorites from "./pages/Favorites/Favorites";
-import MyRecipes from "./pages/MyRecipes/myrecipes";
+import MyRecipes from "./pages/Myrecipes/Myrecipes";
 import AddRecipes from "./pages/AddRecipes/addrecipes";
 
 function App() {

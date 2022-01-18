@@ -4,6 +4,7 @@ import { MyContext } from '../../context';
 import "./styles.css";
 import axios from "../../Axios";
 import { useHistory } from 'react-router-dom'
+import FileBase64 from 'react-file-base64'
 
 function AddRecipes() {
   const {user} = useContext(MyContext)
@@ -12,15 +13,18 @@ function AddRecipes() {
   const [recipeName, setRecipeName] = useState("");
   const [recipeIngredients, setRecipeIngredients] = useState([]);
   const [recipeInstructions, setRecipeInstructions] = useState([]);
+  const [recipeImage, setImage] = useState()
+  console.log(user)
  
 
   function addRecipe (c) {
     c.preventDefault();
+    
     // if (!email || !password || !name) {
     //   return alert("Please fill out the fields");
     // }
     axios
-      .post("/add_recipe", { recipeName, recipeIngredients, recipeInstructions})
+      .post("/add_recipe", { recipeName, recipeIngredients, recipeInstructions, recipeImage})
       .then(({ data }) => {
       })
       .catch((err) => console.log(err));
@@ -70,31 +74,21 @@ function AddRecipes() {
         
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label>Recipe Name</Form.Label>
+          <Form.Label>Recipe Image</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter recipe name"
-            // onChange={(e) => setName(e.target.value)}
-            // value={name}
-            required
+            onChange={(e) => setImage(e.target.value)}
+            value={recipeImage}
           />
+         <FileBase64
+          multiple={ false }
+          onDone={ ({base64})=>setImage(
+            base64
+          ) } />
         
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label>Recipe Name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter recipe name"
-            // onChange={(e) => setName(e.target.value)}
-            // value={name}
-            required
-          />
-        
-        </Form.Group>
-        
-        {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group> */}
+
         <Button variant="success" type="submit">
           Add your recipe
         </Button>
