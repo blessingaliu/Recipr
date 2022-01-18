@@ -5,13 +5,8 @@ import MealModal from "../MealModal/MealModal";
 
 function MealCard({
   meal
-  
 }) {
-
-
-
-  return   (
-   
+  return (
     <Card className="mealCard" data-testid="card" style={{ width: "18rem" }}>
       <Card.Img variant="top" src={meal.strMealThumb} />
       <Card.Body>
@@ -19,8 +14,8 @@ function MealCard({
         {/* <Button variant="success">See recipe</Button> */}
         <MealModal
           strMeal={meal.strMeal}
+          strMealThumb={meal.strMealThumb}
           strInstructions={meal.strInstructions}
-          strIngredient1={meal.strIngredient1}
           idMeal={meal.idMeal}
           meals={[meal]}
         />
