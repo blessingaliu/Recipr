@@ -15,15 +15,16 @@ test("Shows Meal Cards", () => {
         "https://www.themealdb.com/images/media/meals/wxywrq1468235067.jpg",
     },
   ];
+}
 
-  user(name, email, password, token, favorites, userrecipe);
+//   user(name, email, password, token, favorites, userrecipe);
 
-  console.log(user.userrecipe);
+//   console.log(user.userrecipe);
 
-  render(<MyMealContainer meals={user.userrecipe} />);
+//   render(<MyMealContainer meals={user.userrecipe} />);
 
-  expect(screen.getByText("Apple Frangipan Tart")).toBeInTheDocument();
-});
+//   expect(screen.getByText("Apple Frangipan Tart")).toBeInTheDocument();
+// });
 
 // const user = {
 //   email: "user2@testing.com",
@@ -37,4 +38,4 @@ test("Shows Meal Cards", () => {
 //     recipeIngredients: "tomato",
 //     recipeInstructions: "cook",
 //   ],
-// };
+// }
