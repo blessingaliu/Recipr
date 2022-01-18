@@ -21,7 +21,7 @@ function MyMealModal({ strImage, strMeal, strInstructions, strIngredient1 }) {
         </Modal.Header>
         <Modal.Body>
           <div >
-          <img src={strImage} className='modal-image'/>
+          <img src={strImage} className="modal-image"/>
 
           </div>
 

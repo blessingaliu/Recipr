@@ -3,7 +3,8 @@ import { Modal, Button } from "react-bootstrap";
 import { MyContext } from "../../context";
 import axios from "axios";
 
-function MealModal({ strMeal, strInstructions, strIngredient1, idMeal }) {
+function MealModal({ strMeal, strInstructions, strIngredient1, idMeal, meals }) {
+
   const [show, setShow] = useState(false);
   const { user, setUser } = useContext(MyContext);
   const [loading, setLoading] = useState(false);
@@ -11,7 +12,7 @@ function MealModal({ strMeal, strInstructions, strIngredient1, idMeal }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleAddToFavorites = () => {
-    console.log("mealId", idMeal);
+    
     setLoading(true);
     axios
       .post("/add-favorites", { mealId: idMeal })
@@ -45,6 +46,41 @@ function MealModal({ strMeal, strInstructions, strIngredient1, idMeal }) {
       });
   };
 
+  const ingredientarray=[]
+  const measurearray=[]
+  
+  meals.map((e)=>{
+  
+    for (const [key, value] of Object.entries(e)) {
+    if (key.includes("strIngredient")) {
+      if (value){
+        ingredientarray.push(`${value}`)
+    }
+    }
+  }
+  return ingredientarray
+  })
+
+
+meals.map((e)=>{
+  
+  for (const [key, value] of Object.entries(e)) {
+  if (key.includes("strMeasure")) {
+    if(value){
+    measurearray.push(`${value}`)
+    }
+  }
+}
+return measurearray
+})
+
+const zip = (a, b) => a.map((k, i) => [k, b[i]])
+
+const zipped = zip(measurearray, ingredientarray).map((e)=>{
+  return e.join(" ")
+})
+
+
   return (
     <>
       <Button variant="success" onClick={handleShow}>
@@ -56,8 +92,13 @@ function MealModal({ strMeal, strInstructions, strIngredient1, idMeal }) {
           <Modal.Title>{strMeal}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div>{strInstructions}</div>
-          {strIngredient1}
+          <h4>Ingredients</h4>
+          {zipped.map((e)=> (
+            <li>{e}</li>
+          ))}
+          
+          {/* <div>{strInstructions}</div> */}
+          
         </Modal.Body>
         <Modal.Footer>
           <Button variant="success" onClick={handleClose}>

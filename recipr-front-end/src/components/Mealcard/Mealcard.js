@@ -4,23 +4,25 @@ import "./styles.css";
 import MealModal from "../MealModal/MealModal";
 
 function MealCard({
-  strMeal,
-  strMealThumb,
-  strInstructions,
-  strIngredient1,
-  idMeal,
+  meal
+  
 }) {
-  return (
+
+
+
+  return   (
+   
     <Card className="mealCard" data-testid="card" style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={strMealThumb} />
+      <Card.Img variant="top" src={meal.strMealThumb} />
       <Card.Body>
-        <Card.Title>{strMeal}</Card.Title>
+        <Card.Title>{meal.strMeal}</Card.Title>
         {/* <Button variant="success">See recipe</Button> */}
         <MealModal
-          strMeal={strMeal}
-          strInstructions={strInstructions}
-          strIngredient1={strIngredient1}
-          idMeal={idMeal}
+          strMeal={meal.strMeal}
+          strInstructions={meal.strInstructions}
+          strIngredient1={meal.strIngredient1}
+          idMeal={meal.idMeal}
+          meals={[meal]}
         />
       </Card.Body>
     </Card>
