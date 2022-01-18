@@ -3,11 +3,11 @@ import { Card, Button } from "react-bootstrap";
 import "./styles.css";
 import MyMealModal from "../MyMealModal/MyMealModal";
 
-function MyMealCard({ recipeName, recipeInstructions, recipeIngredients }) {
+function MyMealCard({ recipeImage, recipeName, recipeInstructions, recipeIngredients }) {
   console.log(recipeInstructions)
   return (
     <Card className="mealCard" data-testid="card" style={{ width: "18rem" }}>
-      {/* <Card.Img variant="top" src={strMealThumb} /> */}
+      <Card.Img variant="top" src={recipeImage} />
       <Card.Body>
         <Card.Title>{recipeName}</Card.Title>
         {/* <Button variant="success">See recipe</Button> */}
