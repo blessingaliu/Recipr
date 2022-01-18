@@ -18,40 +18,40 @@ function ShowNav() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <LinkContainer to="/">
+        {/* <LinkContainer to="/">
           <Navbar.Brand>Recipr</Navbar.Brand>
-          </LinkContainer>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav.Link href="/">Home</Nav.Link>
-            {!user && (
+        </LinkContainer> */}
+        <Nav.Link href="/">Recipr</Nav.Link>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav.Link href="/">Home</Nav.Link>
+          {!user && (
             <Nav className="me-auto">
-              <LinkContainer to="/login">
-                <Nav.Link>Login</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/signup">
-                <Nav.Link>Signup</Nav.Link>
-              </LinkContainer>
-              </Nav>
-              )}
-              {user && (
-                <>
-                <LinkContainer to="/my-favorites">
-                  <Nav.Link>Favorites</Nav.Link>
-                </LinkContainer>{" "}
-                <LinkContainer to="/add_recipe">
-                  <Nav.Link>Add Recipe</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/my_recipes">
-                  <Nav.Link>My Recipes</Nav.Link>
-                </LinkContainer>
-                  <Nav.Link onClick ={handleLogout}>Logout</Nav.Link>
-                </>
-              )}
-          </Navbar.Collapse>
+              {/* <LinkContainer to="/login"> */}
+              <Nav.Link href="/login">Login</Nav.Link>
+              {/* </LinkContainer> */}
+              {/* <LinkContainer to="/signup"> */}
+              <Nav.Link href="/signup">Signup</Nav.Link>
+              {/* </LinkContainer> */}
+            </Nav>
+          )}
+          {user && (
+            <>
+              {/* <LinkContainer to="/my-favorites"> */}
+              <Nav.Link href="/my-favorites">Favorites</Nav.Link>
+              {/* <LinkContainer to="/add_recipe"> */}
+              <Nav.Link href="/add_recipe">Add Recipe</Nav.Link>
+              {/* </LinkContainer> */}
+              {/* <LinkContainer to="/my_recipes"> */}
+              <Nav.Link href="/my_recipes">My Recipes</Nav.Link>
+              {/* </LinkContainer> */}
+              <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+            </>
+          )}
+        </Navbar.Collapse>
       </Container>
     </Navbar>
-  )};
-
+  );
+}
 
 export default ShowNav;
