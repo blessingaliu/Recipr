@@ -42,20 +42,20 @@ function App() {
           </Route>
         )}
         {user && (
-        <Route exact path="/add_recipe">
-          <AddRecipes />
-        </Route>)}
+          <Route exact path="/add_recipe">
+            <AddRecipes />
+          </Route>
+        )}
         {user && (
-        <Route exact path="/my_recipes">
-          <MyRecipes />
-        </Route>)}
+          <Route exact path="/my_recipes">
+            <MyRecipes />
+          </Route>
+        )}
       </Switch>
     </Router>
   );
 }
 
 export default App;
-
-
 
 //TEST
