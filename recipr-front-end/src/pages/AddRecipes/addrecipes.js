@@ -103,4 +103,13 @@ function AddRecipes() {
     )
 }
 
+// import AddRecipes from "./addrecipes";
+// import { render, screen } from "@testing-library/react";
+// import "@testing-library/jest-dom";
+
+// test("Whole page to add recipes", () => {
+//     render(<AddRecipes />)
+//     expect(screen.getByText('Add your recipe')).toBeInTheDocument();
+//   });
+
 export default AddRecipes
