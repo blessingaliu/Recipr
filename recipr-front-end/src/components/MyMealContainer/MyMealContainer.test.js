@@ -1,4 +1,4 @@
-import { render, cleanup } from "@testing-library/react";
+import { render, screen, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { MyContext } from "../../context";
 import MyMealContainer from "./MyMealContainer";
@@ -9,7 +9,7 @@ afterEach(() => {
 
 test("renders the Meals container in the program", () => {
   render(
-    <MyContext.Provider value={{ userrecipes: [] }}>
+    <MyContext.Provider value={{ userrecipes: [] ,}}>
       <MyMealContainer />
     </MyContext.Provider>
   );
@@ -29,3 +29,17 @@ test("renders the Meals container in the program", () => {
 //     },
 //   ];
 // });
+
+// test("Shows Meal Cards", () => {
+//   const user = [
+//     { name: 'Juliet',
+//       email: 'Juliet@gmail.com',
+//       __v: 11,
+//       token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M…QwNH0.DtYVM_BCYiUe9tp_GymNsu0MXcw6-DuyWNg1pg-GKko', 
+//       userrecipe: Array(12) 
+//      },
+//   ];
+//     render(<MyMealContainer />)  ;
+//     const user1 = user.userrecipes
+//    expect(screen.getByText('user1')).toBeInTheDocument();
+// }
