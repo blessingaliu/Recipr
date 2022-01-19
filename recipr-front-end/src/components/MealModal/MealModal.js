@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { MyContext } from "../../context";
 import axios from "axios";
+import "./styles.css";
 
 function MealModal({ strMeal, strInstructions, strIngredient1, idMeal }) {
   const [show, setShow] = useState(false);
@@ -47,7 +48,11 @@ function MealModal({ strMeal, strInstructions, strIngredient1, idMeal }) {
 
   return (
     <>
-      <Button variant="success" onClick={handleShow}>
+      <Button
+        className="myrecipe-button"
+        variant="success"
+        onClick={handleShow}
+      >
         Show Recipe
       </Button>
 
@@ -60,7 +65,11 @@ function MealModal({ strMeal, strInstructions, strIngredient1, idMeal }) {
           {strIngredient1}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="success" onClick={handleClose}>
+          <Button
+            className="myrecipe-button"
+            variant="success"
+            onClick={handleClose}
+          >
             Close
           </Button>
           {user && (

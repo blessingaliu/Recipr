@@ -34,3 +34,9 @@
   line-height: 1.8;
   text-shadow: 2px 2px #1a1515;
 }
+
+.button-addon2 {
+  font-weight: bold;
+  font-family: Charter, Georgia, Times, Serif;
+  font-size: 2.8rem;
+}
