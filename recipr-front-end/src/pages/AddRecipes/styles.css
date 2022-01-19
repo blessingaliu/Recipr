@@ -1,12 +1,68 @@
 .signup {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 60px;
-  }
-  
-label {
-    display: flex; 
-    
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
 }
+
+label {
+  display: flex;
+}
+
+.page-title {
+  font-weight: bold;
+  font-family: Charter, Georgia, Times, Serif;
+  font-size: 2.8rem;
+  line-height: 1.5;
+  text-shadow: 2px 2px rgb(248, 240, 240);
+  color: black;
+}
+
+.label {
+  font-weight: bold;
+  font-family: Charter, Georgia, Times, Serif;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  padding: 1.5%;
+}
+
+/* .add-button {
+  font-weight: bold;
+  font-family: Charter, Georgia, Times, Serif;
+  margin-top: 3%;
+  text-shadow: 2px 2px rgb(46, 43, 43);
+  color: rgb(255, 254, 254);
+} */
+
+.button {
+  --offset: 10px;
+  --border-size: 2px;
+
+  display: block;
+  position: relative;
+  font-family: Charter, Georgia, Times, Serif;
+  font-size: 1rem;
+  margin-top: 2vw;
+  font-weight: bold;
+  padding: 3em 2em;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #141313;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: background 0.8s ease;
+}
+
+/* &:hover {
+  background: rgba(100, 0, 0, 0.03);
+} */
+
+/* body {
+  background-image: url("https://storage.pixteller.com/designs/designs-images/2019-03-27/05/simple-background-backgrounds-passion-simple-1-5c9b95d09002a.png");
+} */
