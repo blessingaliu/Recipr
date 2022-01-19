@@ -4,6 +4,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { MyContext } from "../../context";
 import { useHistory } from "react-router-dom";
 import axios from "../../Axios";
+import './navbar.css'
 
 function ShowNav() {
   const history = useHistory();
@@ -16,8 +17,9 @@ function ShowNav() {
     });
   };
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
+    
+    <Navbar bg="light" expand="lg" className="row2">
+      <Container className="hello2">
         <LinkContainer to="/">
           <Navbar.Brand>Recipr</Navbar.Brand>
           </LinkContainer>
@@ -51,6 +53,7 @@ function ShowNav() {
           </Navbar.Collapse>
       </Container>
     </Navbar>
+   
   )};
 
 

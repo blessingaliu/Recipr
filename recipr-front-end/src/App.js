@@ -10,8 +10,9 @@ import React, { useContext, useEffect } from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import axios from "./Axios";
 import Favorites from "./pages/Favorites/Favorites";
-import MyRecipes from "./pages/MyRecipes/MyRecipes";
+import MyRecipes from "./pages/Myrecipes/Myrecipes";
 import AddRecipes from "./pages/AddRecipes/addrecipes";
+import Footer from "./components/footer/footer";
 
 function App() {
   const { user, setUser } = useContext(MyContext);
@@ -50,8 +51,20 @@ function App() {
           <MyRecipes />
         </Route>)}
       </Switch>
+      
+      <Footer>
+      <div className="page-container">
+      <div className="content-wrap">
+        </div>
+        </div>
+      </Footer>
     </Router>
+    
+
+    
   );
+  
+  
 }
 
 export default App;
