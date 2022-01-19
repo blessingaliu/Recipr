@@ -15,7 +15,7 @@ function FaveModal({
   const [show, setShow] = useState(false);
   const { user, setUser } = useContext(MyContext);
   const [loading, setLoading] = useState(false);
-
+  console.log(typeof(meal))
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleAddToFavorites = () => {
@@ -48,60 +48,56 @@ function FaveModal({
       });
   };
 
-  //console.log(meals)
+
   const meal_array = [];
   const ingredientarray = [];
   const allingredientarray = [];
   const measurearray =[]
+  for (const property in meal) {
+    if (property.includes("strIngredient")) {
+      if (meal[property] != null && meal[property].length > 1) {
+        ingredientarray.push(meal[property])
+    }
+  }
+    // console.log(`${property}: ${meal[property]}`);
+  }
 
-  // let cheese = meals.map((meal) => {
+  console.log(ingredientarray)
 
-  //   return meal.meals[0];
+//   meal.map((e)=>{
+//     console.log(e)
+//     for (const [key, value] of Object.entries(e)) {
+//     if (key.includes("strIngredient")) {
+//       if (value != null && value.length > 1){
+//         ingredientarray.push(value)
+//       }
+//     }
+//   }
+//     return ingredientarray
+//   })
 
-  // });
-
-  // console.log(cheese[0])
-
-  meals.map((meal) => {
-    // console.log(meal)
-      meal.meals.map((e) => {
+//   meal.map((meal) => {
+    
+//       meal.map((e) => {
      
-      for (const [key, value] of Object.entries(e)) {
-        if (key.includes("strIngredient")) {
-          if (value != null && value.length > 1) {
-            ingredientarray.push(value);
-          }
-        }
-      }
-    });
+//       for (const [key, value] of Object.entries(e)) {
+//         if (key.includes("strMeasure")) {
+//           if (value != null && value.length > 1) {
+//             measurearray.push(value);
+//           }
+//         }
+//       }
+//     });
 
-    return ingredientarray;
-  });
-
-
-
-  meals.map((meal) => {
-    console.log(meal)
-      meal.meals.map((e) => {
-     
-      for (const [key, value] of Object.entries(e)) {
-        if (key.includes("strMeasure")) {
-          if (value != null && value.length > 1) {
-            measurearray.push(value);
-          }
-        }
-      }
-    });
-
-    return measurearray;
-  });
+//     return measurearray;
+//   });
 
 
-const zip = (a, b) => a.map((k, i) => [k, b[i]])
+// const zip = (a, b) => a.map((k, i) => [k, b[i]])
 
-const zipped = zip(measurearray, ingredientarray).map((e)=>{
-  return e.join(" ")
-})
+// const zipped = zip(measurearray, ingredientarray).map((e)=>{
+//   return e.join(" ")
+// })
 
  
 
@@ -116,10 +112,10 @@ const zipped = zip(measurearray, ingredientarray).map((e)=>{
           <Modal.Title>{strMeal}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <img src={strMealThumb} className="modal-image" />
+          <img src={meal.strMealThumb} className="modal-image" />
           <h4>Ingredients</h4>
           <ul>
-            {zipped.map((e)=> (
+            {ingredientarray.map((e)=> (
               <li>{e}</li>
             ))}
           </ul>

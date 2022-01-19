@@ -6,7 +6,8 @@ function FaveContainer({ meals }) {
   return (
     <div className="meals-container">
       {meals.map(({ meals: meal }) => (
-        <FaveCard key={meal[0].idMeal} meals={meals} {...meal[0]} />
+        
+        <FaveCard key={meal[0].idMeal} meal = {meal[0]} />
       ))}
     </div>
   );

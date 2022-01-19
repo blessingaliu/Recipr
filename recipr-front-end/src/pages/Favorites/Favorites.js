@@ -21,7 +21,7 @@ function Favorites() {
       Promise.all(requests).then((res) => setFavorites(res));
     }
   }, [user]);
-
+ 
   if (!user.favorites.length) {
     return (
       <div>

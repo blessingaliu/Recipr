@@ -10,13 +10,13 @@ function FaveCard({
   strInstructions,
   strIngredient1,
   idMeal,
-  meals
+ 
 }) {
   return (
     <Card className="mealCard" data-testid="card" style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={strMealThumb} />
+      <Card.Img variant="top" src={meal.strMealThumb} />
       <Card.Body>
-        <Card.Title>{strMeal}</Card.Title>
+        <Card.Title>{meal.strMeal}</Card.Title>
         {/* <Button variant="success">See recipe</Button> */}
         <FaveModal
           key = {idMeal}
@@ -25,7 +25,7 @@ function FaveCard({
           strInstructions={strInstructions}
           strIngredient1={strIngredient1}
           idMeal={idMeal}
-          meals={meals}
+          meal={meal}
         />
       </Card.Body>
     </Card>
