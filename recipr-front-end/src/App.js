@@ -12,6 +12,7 @@ import axios from "./Axios";
 import Favorites from "./pages/Favorites/Favorites";
 import MyRecipes from "./pages/MyRecipes/myrecipes";
 import AddRecipes from "./pages/AddRecipes/addrecipes";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const { user, setUser } = useContext(MyContext);
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/">
           <ShowSearchbar />
           <Homepage />
+          <Footer />
         </Route>
         {!user && (
           <>
@@ -52,6 +54,7 @@ function App() {
           </Route>
         )}
       </Switch>
+      {/* <Footer /> */}
     </Router>
   );
 }

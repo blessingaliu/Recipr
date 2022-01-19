@@ -1,0 +1,16 @@
+.title {
+  font-weight: bold;
+  font-family: Charter, Georgia, Times, Serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-shadow: 2px 2px rgb(248, 240, 240);
+  color: black;
+}
+
+.footer-body {
+  background-color: #bee8b7;
+}
+
+.footer-header {
+  background-color: honeydew;
+}
