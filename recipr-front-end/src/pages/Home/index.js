@@ -6,6 +6,7 @@ import "./styles.css";
 
 function Homepage() {
   const { meals, setMeals } = useContext(MyContext);
+  console.log(meals);
   useEffect(() => {
     fetch("https://www.themealdb.com/api/json/v1/1/search.php?f=a")
       .then((res) => res.json())
