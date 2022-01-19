@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../context";
 import { Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import MealCard from "../../components/Mealcard/Mealcard";
+import FaveContainer from "../../components/FaveContainer/FaveContainer";
 
 function Favorites() {
   const { user } = useContext(MyContext);
@@ -13,12 +13,10 @@ function Favorites() {
     // this will give us an array with promises
     // The promise.all takes an array of requests and when they are all resolved, we console.log the response(which is an array)
     if (user.favorites.length) {
-      console.log(user.favorites);
-      console.log(user);
       const requests = user.favorites.map((favorite) =>
         fetch(
           `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${favorite}`
-        ).then((res) => res.json())
+        ).then((res) => res.json()).then((res) => console.log(res))
       );
       Promise.all(requests).then((res) => setFavorites(res));
     }
@@ -36,12 +34,7 @@ function Favorites() {
   }
   return (
     <div>
-      <h2>Your favorites</h2>
-      <div className="meals-container">
-        {favorites.map(({ meals: meal }) => (
-          <MealCard key={meal[0].idMeal} {...meal[0]} />
-        ))}
-      </div>{" "}
+      <FaveContainer meals={favorites} />
     </div>
   );
 }

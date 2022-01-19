@@ -1,0 +1,8 @@
+        <FaveModal
+          strMeal={strMeal}
+          strMealThumb={strMealThumb}
+          strInstructions={strInstructions}
+          idMeal={idMeal}
+          meals={meals}
+          meal={meal}
+        />
