@@ -3,7 +3,7 @@ import { Modal, Button } from "react-bootstrap";
 import { MyContext } from "../../context";
 import axios from "axios";
 
-function MealModal({ strMeal, strMealThumb, strInstructions, strIngredient1, idMeal, meals }) {
+function MealModal({ strMeal, strMealThumb, strInstructions, strIngredient1, idMeal, strYoutube, meals }) {
 //console.log(meals)
   const [show, setShow] = useState(false);
   const { user, setUser } = useContext(MyContext);
@@ -46,7 +46,6 @@ function MealModal({ strMeal, strMealThumb, strInstructions, strIngredient1, idM
   const measurearray=[]
   const instructions = []
  
-
   const split_instructions = meals.map((e) => {
 		instructions.push(e.strInstructions.split('\r\n'));
     return instructions
@@ -107,7 +106,7 @@ const zipped = zip(measurearray, ingredientarray).map((e)=>{
                 ))
               ))}
             </ul>
-            <br/>
+          <a href={strYoutube}>Cooking guide on YouTube</a>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="success" onClick={handleClose}>

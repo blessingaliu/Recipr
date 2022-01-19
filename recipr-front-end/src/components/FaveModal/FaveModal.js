@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button, NavItem } from "react-bootstrap";
 import { MyContext } from "../../context";
 import axios from "axios";
 
@@ -15,7 +15,6 @@ function FaveModal({
   const [show, setShow] = useState(false);
   const { user, setUser } = useContext(MyContext);
   const [loading, setLoading] = useState(false);
-  console.log(typeof(meal))
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleAddToFavorites = () => {
@@ -48,59 +47,28 @@ function FaveModal({
       });
   };
 
-
-  const meal_array = [];
-  const ingredientarray = [];
-  const allingredientarray = [];
+  const ingredientarray = []
   const measurearray =[]
+  const instructions = meal.strInstructions.split("\r\n")
+
   for (const property in meal) {
     if (property.includes("strIngredient")) {
       if (meal[property] != null && meal[property].length > 1) {
         ingredientarray.push(meal[property])
     }
-  }
-    // console.log(`${property}: ${meal[property]}`);
-  }
+  }}
 
-  console.log(ingredientarray)
+  for (const property in meal) {
+    if (property.includes("strMeasure")) {
+      if (meal[property] != null && meal[property].length > 1) {
+        measurearray.push(meal[property])
+    }
+  }}
 
-//   meal.map((e)=>{
-//     console.log(e)
-//     for (const [key, value] of Object.entries(e)) {
-//     if (key.includes("strIngredient")) {
-//       if (value != null && value.length > 1){
-//         ingredientarray.push(value)
-//       }
-//     }
-//   }
-//     return ingredientarray
-//   })
-
-//   meal.map((meal) => {
-    
-//       meal.map((e) => {
-     
-//       for (const [key, value] of Object.entries(e)) {
-//         if (key.includes("strMeasure")) {
-//           if (value != null && value.length > 1) {
-//             measurearray.push(value);
-//           }
-//         }
-//       }
-//     });
-
-//     return measurearray;
-//   });
-
-
-// const zip = (a, b) => a.map((k, i) => [k, b[i]])
-
-// const zipped = zip(measurearray, ingredientarray).map((e)=>{
-//   return e.join(" ")
-// })
-
- 
-
+  const zip = (a, b) => a.map((k, i) => [k, b[i]])
+  const zipped = zip(measurearray, ingredientarray).map((e)=>{
+    return e.join(" ")
+  })
 
   return (
     <>
@@ -109,20 +77,27 @@ function FaveModal({
       </Button>
       <Modal scrollable={true} show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{strMeal}</Modal.Title>
+          <Modal.Title>{meal.strMeal}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <img src={meal.strMealThumb} className="modal-image" />
           <h4>Ingredients</h4>
           <ul>
-            {ingredientarray.map((e)=> (
+            {zipped.map((e)=> (
               <li>{e}</li>
             ))}
           </ul>
           <h4>Method</h4>
-
-          {strInstructions}
-          <br />
+          <ul>
+            {instructions.map((instruction) => {
+              if (instruction != null && instruction.length > 1) {
+                return (<li>{instruction}</li>)
+              }}
+            )}
+              
+          </ul>
+          <a href={meal.strYoutube}>Cooking guide on YouTube</a>
+          <br/>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="success" onClick={handleClose}>

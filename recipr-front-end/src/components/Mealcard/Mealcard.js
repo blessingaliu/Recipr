@@ -17,6 +17,7 @@ function MealCard({
           strMealThumb={meal.strMealThumb}
           strInstructions={meal.strInstructions}
           idMeal={meal.idMeal}
+          strYoutube={meal.strYoutube}
           meals={[meal]}
         />
       </Card.Body>

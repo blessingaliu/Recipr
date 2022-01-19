@@ -10,7 +10,6 @@ function FaveCard({
   strInstructions,
   strIngredient1,
   idMeal,
- 
 }) {
   return (
     <Card className="mealCard" data-testid="card" style={{ width: "18rem" }}>
@@ -24,7 +23,8 @@ function FaveCard({
           strMealThumb={strMealThumb}
           strInstructions={strInstructions}
           strIngredient1={strIngredient1}
-          idMeal={idMeal}
+          idMeal={meal.idMeal}
+          strYoutube={meal.strYoutube}
           meal={meal}
         />
       </Card.Body>
