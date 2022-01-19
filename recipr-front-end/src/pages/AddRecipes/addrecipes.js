@@ -39,7 +39,7 @@ function AddRecipes() {
   return (
     <div className="signup">
       <Form onSubmit={addRecipe}>
-        <h1> Add your recipes here, {user.name}</h1>
+        <h1 className="page-title"> Add your recipes here, {user.name}</h1>
         <Form.Group className="mb-3 form-inline" controlId="formBasicName">
           <Form.Label className="label">Recipe Name </Form.Label>
           <Form.Control
@@ -85,7 +85,7 @@ function AddRecipes() {
           />
         </Form.Group>
 
-        <Button variant="success" type="submit">
+        <Button variant="success" type="submit" className="button">
           Add your recipe
         </Button>
       </Form>
