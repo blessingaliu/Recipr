@@ -10,8 +10,13 @@ import React, { useContext, useEffect } from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import axios from "./Axios";
 import Favorites from "./pages/Favorites/Favorites";
+
+import MyRecipes from "./pages/MyRecipes/myrecipes";
+
 import MyRecipes from "./pages/MyRecipes/MyRecipes";
+
 import AddRecipes from "./pages/AddRecipes/addrecipes";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const { user, setUser } = useContext(MyContext);
@@ -25,6 +30,7 @@ function App() {
         <Route exact path="/">
           <ShowSearchbar />
           <Homepage />
+          <Footer />
         </Route>
         {!user && (
           <>
@@ -42,20 +48,20 @@ function App() {
           </Route>
         )}
         {user && (
-        <Route exact path="/add_recipe">
-          <AddRecipes />
-        </Route>)}
+          <Route exact path="/add_recipe">
+            <AddRecipes />
+          </Route>
+        )}
         {user && (
-        <Route exact path="/my_recipes">
-          <MyRecipes />
-        </Route>)}
+          <Route exact path="/my_recipes">
+            <MyRecipes />
+          </Route>
+        )}
       </Switch>
+      {/* <Footer /> */}
     </Router>
   );
 }
 
 export default App;
 
-
-
-//TEST

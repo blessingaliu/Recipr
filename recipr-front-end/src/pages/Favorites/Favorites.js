@@ -3,6 +3,7 @@ import { MyContext } from "../../context";
 import { Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import MealCard from "../../components/Mealcard/Mealcard";
+import "./styles.css";
 
 function Favorites() {
   const { user } = useContext(MyContext);
@@ -36,7 +37,7 @@ function Favorites() {
   }
   return (
     <div>
-      <h2>Your favorites</h2>
+      <h2 className="favouritemeals-title">Your favorites</h2>
       <div className="meals-container">
         {favorites.map(({ meals: meal }) => (
           <MealCard key={meal[0].idMeal} {...meal[0]} />

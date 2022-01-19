@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { MyContext } from "../../context";
 import axios from "axios";
+import "./styles.css";
 
 function MealModal({ strMeal, strMealThumb, strInstructions, strIngredient1, idMeal, meals }) {
 
@@ -80,7 +81,11 @@ const zipped = zip(measurearray, ingredientarray).map((e)=>{
 })
   return (
     <>
-      <Button variant="success" onClick={handleShow}>
+      <Button
+        className="myrecipe-button"
+        variant="success"
+        onClick={handleShow}
+      >
         Show Recipe
       </Button>
       <Modal show={show} onHide={handleClose}>
@@ -109,7 +114,11 @@ const zipped = zip(measurearray, ingredientarray).map((e)=>{
             <br/>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="success" onClick={handleClose}>
+          <Button
+            className="myrecipe-button"
+            variant="success"
+            onClick={handleClose}
+          >
             Close
           </Button>
           {user && (

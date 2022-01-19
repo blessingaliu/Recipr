@@ -2,6 +2,7 @@ import { useEffect, useContext } from "react";
 import axios from "axios";
 import MealContainer from "../../components/MealContainer/mealContainer";
 import { MyContext } from "../../context";
+import "./styles.css";
 
 function Homepage() {
   const { meals, setMeals } = useContext(MyContext);

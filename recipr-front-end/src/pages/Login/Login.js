@@ -5,7 +5,6 @@ import axios from "../../Axios";
 import "./styles.css";
 import { useHistory } from "react-router-dom";
 
-
 function Login() {
   const history = useHistory();
   const [email, setEmail] = useState("");
@@ -13,7 +12,6 @@ function Login() {
   const { setUser } = useContext(MyContext);
 
   function handleLogin(e) {
-   
     e.preventDefault();
     if (!email || !password) {
       return alert("Please fill out the fields");
@@ -21,9 +19,9 @@ function Login() {
     axios
       .post("/login", { email, password })
       .then(({ data }) => {
-       localStorage.setItem("token", data.token);
-       setUser(data)
-       history.replace('/');
+        localStorage.setItem("token", data.token);
+        setUser(data);
+        history.replace("/");
       })
       .catch((err) => console.log(err));
   }
@@ -32,7 +30,7 @@ function Login() {
     <div className="login">
       <Form onSubmit={handleLogin}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label className="label">Email address</Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter email"
@@ -46,7 +44,7 @@ function Login() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label className="label">Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Enter password"
@@ -58,7 +56,7 @@ function Login() {
         {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group> */}
-        <Button variant="success" type="submit">
+        <Button className="mylogin-button" variant="success" type="submit">
           Log In
         </Button>
       </Form>
