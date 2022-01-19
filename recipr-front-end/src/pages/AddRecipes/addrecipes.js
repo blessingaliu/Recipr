@@ -55,7 +55,7 @@ function AddRecipes() {
           <Form.Label className="label">Ingredients</Form.Label>
           <Form.Control
             type="textarea"
-            placeholder="Enter recipe name"
+            placeholder="Enter each ingredient and measure separated by a comma"
             onChange={(e) => setRecipeIngredients(e.target.value)}
             value={recipeIngredients}
             required
@@ -65,7 +65,7 @@ function AddRecipes() {
           <Form.Label className="label">Instructions</Form.Label>
           <Form.Control
             type="textarea"
-            placeholder="Enter recipe name"
+            placeholder="Enter each step separated by a comma"
             onChange={(e) => setRecipeInstructions(e.target.value)}
             value={recipeInstructions}
             required
@@ -74,15 +74,24 @@ function AddRecipes() {
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label className="label">Recipe Image</Form.Label>
           <Form.Control
-            type="text"
-            placeholder="Enter recipe name"
+            type="hidden"
             onChange={(e) => setImage(e.target.value)}
             value={recipeImage}
-          />
-          <FileBase64
-            multiple={false}
-            onDone={({ base64 }) => setImage(base64)}
-          />
+
+//           />
+//           <FileBase64
+//             multiple={false}
+//             onDone={({ base64 }) => setImage(base64)}
+//           />
+
+          /><br/>
+         <FileBase64
+          multiple={ false }
+          onDone={ ({base64})=>setImage(
+            base64
+          ) } />
+        
+
         </Form.Group>
 
         <Button variant="success" type="submit" className="button">
