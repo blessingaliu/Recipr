@@ -15,7 +15,7 @@ function MyMealModal({ strImage, strMeal, strInstructions, strIngredient1 }) {
         Show Recipe
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal scrollable={true} show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{strMeal}</Modal.Title>
         </Modal.Header>

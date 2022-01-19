@@ -45,6 +45,7 @@ function MealModal({ strMeal, strMealThumb, strInstructions, strIngredient1, idM
   const ingredientarray=[]
   const measurearray=[]
   const instructions = []
+ 
 
   const split_instructions = meals.map((e) => {
 		instructions.push(e.strInstructions.split('\r\n'));
@@ -83,7 +84,7 @@ const zipped = zip(measurearray, ingredientarray).map((e)=>{
       <Button variant="success" onClick={handleShow}>
         Show Recipe
       </Button>
-      <Modal show={show} onHide={handleClose}>
+      <Modal scrollable={true} show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{strMeal}</Modal.Title>
         </Modal.Header>

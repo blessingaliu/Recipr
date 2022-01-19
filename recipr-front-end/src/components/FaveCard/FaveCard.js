@@ -19,13 +19,13 @@ function FaveCard({
         <Card.Title>{strMeal}</Card.Title>
         {/* <Button variant="success">See recipe</Button> */}
         <FaveModal
+          key = {idMeal}
           strMeal={strMeal}
           strMealThumb={strMealThumb}
           strInstructions={strInstructions}
           strIngredient1={strIngredient1}
           idMeal={idMeal}
           meals={meals}
-          meal={meal}
         />
       </Card.Body>
     </Card>

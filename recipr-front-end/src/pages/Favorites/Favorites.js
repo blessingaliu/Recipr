@@ -16,7 +16,7 @@ function Favorites() {
       const requests = user.favorites.map((favorite) =>
         fetch(
           `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${favorite}`
-        ).then((res) => res.json()).then((res) => console.log(res))
+        ).then((res) => res.json())
       );
       Promise.all(requests).then((res) => setFavorites(res));
     }
