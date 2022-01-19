@@ -30,7 +30,7 @@ function Signup() {
     <div className="signup">
       <Form onSubmit={handleSignup}>
         <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label>Name</Form.Label>
+          <Form.Label className="label">Name</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter name"
@@ -42,7 +42,7 @@ function Signup() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label className="label">Email address</Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter email"
@@ -56,7 +56,7 @@ function Signup() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label className="label">Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Password"
@@ -68,7 +68,7 @@ function Signup() {
         {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group> */}
-        <Button variant="success" type="submit">
+        <Button className="mysignup-button" variant="success" type="submit">
           Sign Up
         </Button>
       </Form>
