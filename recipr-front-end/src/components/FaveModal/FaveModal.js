@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Modal, Button, NavItem } from "react-bootstrap";
+import { Modal, Button, NavItem, Nav } from "react-bootstrap";
 import { MyContext } from "../../context";
 import axios from "axios";
 
@@ -72,7 +72,10 @@ function FaveModal({
 
   return (
     <>
-      <Button variant="success" onClick={handleShow}>
+      <Button
+       variant="success"
+       onClick={handleShow}
+       className="myrecipe-button">
         Show Recipe
       </Button>
       <Modal scrollable={true} show={show} onHide={handleClose}>
@@ -96,11 +99,14 @@ function FaveModal({
             )}
               
           </ul>
-          <a href={meal.strYoutube}>Cooking guide on YouTube</a>
+          <Nav.Link href={meal.strYoutube}>Cooking guide on YouTube</Nav.Link>
           <br/>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="success" onClick={handleClose}>
+          <Button 
+            variant="success"
+            onClick={handleClose} 
+            className="myrecipe-button">
             Close
           </Button>
           {user && (
@@ -110,14 +116,17 @@ function FaveModal({
                   variant="danger"
                   onClick={handleRemoveFromFavorites}
                   disabled={loading}
+                  className="myrecipe-button"
                 >
                   Remove from Favorites
                 </Button>
               ) : (
                 <Button
+                  className="myrecipe-button"
                   variant="primary"
                   onClick={handleAddToFavorites}
                   disabled={loading}
+                  className="myrecipe-button"
                 >
                   Save to favourites
                 </Button>

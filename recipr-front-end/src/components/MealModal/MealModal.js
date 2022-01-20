@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button, Nav } from "react-bootstrap";
 import { MyContext } from "../../context";
 import axios from "axios";
 import "./styles.css";
@@ -111,7 +111,7 @@ const zipped = zip(measurearray, ingredientarray).map((e)=>{
                 ))
               ))}
             </ul>
-          <a href={strYoutube}>Cooking guide on YouTube</a>
+          <Nav.Link href={strYoutube}>Cooking guide on YouTube</Nav.Link>
         </Modal.Body>
         <Modal.Footer>
           <Button

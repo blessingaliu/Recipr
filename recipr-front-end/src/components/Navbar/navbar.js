@@ -4,6 +4,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { MyContext } from "../../context";
 import { useHistory } from "react-router-dom";
 import axios from "../../Axios";
+import "./styles.css";
 
 function ShowNav() {
   const history = useHistory();

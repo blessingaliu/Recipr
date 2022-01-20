@@ -18,8 +18,9 @@ function ShowSearchbar() {
   return (
     <div className="searchbar_container">
       <div className="searchbar">
+        <div className="search_stuff">
         {user && (
-          <h1 className="username">Welcome {user.name}</h1>
+          <h1 className="username">Welcome {user.name.charAt(0).toUpperCase() + user.name.slice(1)}</h1>
         )}
         <p className="subtitle">
           You can search for your favorite recipes here
@@ -35,7 +36,7 @@ function ShowSearchbar() {
           <Button variant="danger" id="button-addon2" onClick={handleSearch}>
             submit
           </Button>
-        </InputGroup>
+        </InputGroup></div>
       </div>
     </div>
   );

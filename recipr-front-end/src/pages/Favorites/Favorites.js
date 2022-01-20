@@ -39,6 +39,7 @@ function Favorites() {
       <h2 className="favouritemeals-title">Your favorites</h2>
       <div className="meals-container">
         <FaveContainer meals={favorites} />
+      </div>
     </div>
   );
 }

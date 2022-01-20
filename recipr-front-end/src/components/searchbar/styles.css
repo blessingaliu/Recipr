@@ -13,11 +13,15 @@
   /*border: 5px solid #66666666;*/
   height: 38px;
   width: 50%;
+  font-family: Charter, Georgia, Times, Serif;
   /* box-shadow: 0px 0px 20px 10px#333333bb; */
 }
 
 .subtitle {
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-shadow: 1px 1px #1a1515;
   font-family: Charter, Georgia, Times, Serif;
   font-size: 1.3rem;
@@ -27,9 +31,9 @@
 .username {
   color: rgb(248, 244, 244);
   font-weight: bold;
-  /* display: flex;
-  /* justify-content: center;
-  align-items: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: Charter, Georgia, Times, Serif;
   font-size: 3.2rem;
   line-height: 1.8;
@@ -40,4 +44,10 @@
   font-weight: bold;
   font-family: Charter, Georgia, Times, Serif;
   font-size: 2.8rem;
+}
+
+.search_stuff {
+  background: #33333366;
+  box-shadow: 0px 0px 20px 0px #333333cc;
+  border-radius: 5px;
 }
