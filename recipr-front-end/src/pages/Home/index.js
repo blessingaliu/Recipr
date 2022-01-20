@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react";
 import axios from "axios";
-import MealContainer from "../../components/MealContainer/mealContainer";
+import MealContainer from "../../components/MealContainer/MealContainer";
 import { MyContext } from "../../context";
 import "./styles.css";
 

@@ -12,19 +12,15 @@ function ShowSearchbar() {
   function handleSearch() {
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`)
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-
-        setMeals(data.meals);
+      .then((data) => {setMeals(data.meals);
       });
   }
   return (
     <div className="searchbar_container">
       <div className="searchbar">
-        {user && 
-        (
-        <h1 className="username">Welcome {user.name}</h1>
-  )}
+        {user && (
+          <h1 className="username">Welcome {user.name}</h1>
+        )}
         <p className="subtitle">
           You can search for your favorite recipes here
         </p>

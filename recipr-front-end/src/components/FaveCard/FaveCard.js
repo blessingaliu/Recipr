@@ -1,10 +1,15 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import "./styles.css";
-import MealModal from "../MealModal/MealModal";
+import FaveModal from "../FaveModal/FaveModal";
 
-function MealCard({
-  meal
+function FaveCard({
+  meal,
+  strMeal,
+  strMealThumb,
+  strInstructions,
+  strIngredient1,
+  idMeal,
 }) {
   return (
     <Card className="mealCard" data-testid="card" style={{ width: "18rem" }}>
@@ -12,17 +17,19 @@ function MealCard({
       <Card.Body>
         <Card.Title>{meal.strMeal}</Card.Title>
         {/* <Button variant="success">See recipe</Button> */}
-        <MealModal
-          strMeal={meal.strMeal}
-          strMealThumb={meal.strMealThumb}
-          strInstructions={meal.strInstructions}
+        <FaveModal
+          key = {idMeal}
+          strMeal={strMeal}
+          strMealThumb={strMealThumb}
+          strInstructions={strInstructions}
+          strIngredient1={strIngredient1}
           idMeal={meal.idMeal}
           strYoutube={meal.strYoutube}
-          meals={[meal]}
+          meal={meal}
         />
       </Card.Body>
     </Card>
   );
 }
 
-export default MealCard;
+export default FaveCard;

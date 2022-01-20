@@ -17,6 +17,7 @@ import Footer from "./components/Footer/Footer";
 function App() {
   const { user, setUser } = useContext(MyContext);
   useEffect(() => {
+    document.title = "Recipr";
     axios.post("/auto-login").then(({ data }) => setUser(data));
   }, []);
   return (
@@ -60,4 +61,3 @@ function App() {
 }
 
 export default App;
-
