@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { MyContext } from "../../context";
 import axios from "axios";
+import "./styles.css";
 
 function MealModal({ strMeal, strMealThumb, strInstructions, strIngredient1, idMeal, strYoutube, meals }) {
 //console.log(meals)
@@ -80,7 +81,11 @@ const zipped = zip(measurearray, ingredientarray).map((e)=>{
 })
   return (
     <>
-      <Button variant="success" onClick={handleShow}>
+      <Button
+        className="myrecipe-button"
+        variant="success"
+        onClick={handleShow}
+      >
         Show Recipe
       </Button>
       <Modal scrollable={true} show={show} onHide={handleClose}>
@@ -109,7 +114,11 @@ const zipped = zip(measurearray, ingredientarray).map((e)=>{
           <a href={strYoutube}>Cooking guide on YouTube</a>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="success" onClick={handleClose}>
+          <Button
+            className="myrecipe-button"
+            variant="success"
+            onClick={handleClose}
+          >
             Close
           </Button>
           {user && (

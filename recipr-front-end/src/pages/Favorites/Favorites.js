@@ -3,6 +3,8 @@ import { MyContext } from "../../context";
 import { Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import FaveContainer from "../../components/FaveContainer/FaveContainer";
+import MealCard from "../../components/Mealcard/Mealcard";
+import "./styles.css";
 
 function Favorites() {
   const { user } = useContext(MyContext);
@@ -34,7 +36,9 @@ function Favorites() {
   }
   return (
     <div>
-      <FaveContainer meals={favorites} />
+      <h2 className="favouritemeals-title">Your favorites</h2>
+      <div className="meals-container">
+        <FaveContainer meals={favorites} />
     </div>
   );
 }
